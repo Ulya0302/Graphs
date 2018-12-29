@@ -1,4 +1,6 @@
-import java.util.ArrayList;
+package algoritms;
+
+import structurs.GraphNode;
 
 public class DFS {
 

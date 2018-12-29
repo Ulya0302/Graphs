@@ -1,5 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
+package main;
+
+import algoritms.DFS;
+import structurs.GraphNode;
 
 public class GraphTest {
     public static void main(String[] args) {
