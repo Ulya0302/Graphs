@@ -2,33 +2,19 @@ package main;
 
 import algoritms.DFS;
 import structurs.GraphNode;
+import structurs.UndirectedGraph;
 
 public class GraphTest {
-    public static void main(String[] args) {
-        GraphNode one = new GraphNode("1");
-        GraphNode two = new GraphNode("2");
-        GraphNode three = new GraphNode("3");
-        GraphNode four = new GraphNode("4");
-        GraphNode five = new GraphNode("5");
-        GraphNode six = new GraphNode("6");
-        GraphNode seven = new GraphNode("7");
-        GraphNode eight = new GraphNode("8");
-        GraphNode nine = new GraphNode("9");
-        one.addEdges(two, nine);
-        two.addEdges(one, three, four, six);
-        three.addEdges(two, four);
-        four.addEdges(two, three, five);
-        five.addEdges(four);
-        six.addEdges(two, seven, eight);
-        seven.addEdges(six);
-        eight.addEdges(six);
-        nine.addEdges(one);
-        GraphNode temp = DFS.recursiveFinder(one, "8");
-        if (temp != null){
-            System.out.println(temp.getValue());
-        }
-        else
-            System.out.println("Not");
+    public static void main(String[] args) throws Exception {
+        UndirectedGraph undirectedGraph = new UndirectedGraph("1", "2", "3", "4", "5", "6", "7", "8", "9");
+        undirectedGraph.addEdges("1", "2", "9");
+        undirectedGraph.addEdges("2", "3", "4", "6");
+        undirectedGraph.addEdges("3", "4");
+        undirectedGraph.addEdges("4", "5");
+        undirectedGraph.addEdges("6", "7", "8");
+        undirectedGraph.findWay("1", "9");
+
+
 
     }
 

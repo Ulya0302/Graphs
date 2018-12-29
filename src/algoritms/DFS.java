@@ -16,11 +16,11 @@ public class DFS {
     }
 
     private static GraphNode recursiveHelper(GraphNode node) {
-        System.out.println(node.getValue()+ " р " + node.getStatus());
+//        System.out.println(node.getValue()+ " р " + node.getStatus());
         GraphNode temp;
         node.setStatus(2);
         for (GraphNode curNode: node.getEdges()) {
-            System.out.println(node.getValue()+ " " + curNode.getValue()+ " ц " + curNode.getStatus());
+//            System.out.println(node.getValue()+ " " + curNode.getValue()+ " ц " + curNode.getStatus());
             if (curNode.getValue() == el)
                 return curNode;
             if (curNode.getStatus() == 0) {
