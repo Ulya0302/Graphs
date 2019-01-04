@@ -1,7 +1,5 @@
 package main;
 
-import algoritms.DFS;
-import structurs.GraphNode;
 import structurs.UndirectedGraph;
 
 public class GraphTest {
@@ -13,9 +11,5 @@ public class GraphTest {
         undirectedGraph.addEdges("4", "5");
         undirectedGraph.addEdges("6", "7", "8");
         undirectedGraph.findWay("1", "9");
-
-
-
     }
-
 }

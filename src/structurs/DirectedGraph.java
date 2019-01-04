@@ -1,27 +1,28 @@
 package structurs;
 
-public class DirectedGraph extends Graph{
+public class DirectedGraph extends AbstractGraph {
 
     public DirectedGraph(Object ... values) {
         super(values);
     }
 
-    public DirectedGraph(GraphNode ... nodes) {
+    public DirectedGraph(GraphNode... nodes) {
         super(nodes);
     }
 
     public void addEdges(Object mainValue, Object ... values) throws Exception {
-        GraphNode mainNode = getNodeByVal(mainValue);
-        GraphNode temp;
+        GraphNode mainNode = getNodeByName(mainValue);
+        GraphNode otherNode;
         if (mainNode == null)
             throw new Exception("No nodes with value " + mainValue.toString());
         for (Object el: values) {
-            temp = getNodeByVal(el);
-            if (temp == null)
+            otherNode = getNodeByName(el);
+            if (otherNode == null)
                 System.out.println("No node with value" + el.toString());
             else {
-                mainNode.getEdges().add(temp);
+                mainNode.addEdge(otherNode, 0);
             }
         }
     }
+
 }

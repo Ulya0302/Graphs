@@ -1,28 +1,22 @@
 package structurs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GraphNode {
-    private ArrayList<GraphNode> edges = new ArrayList<GraphNode>() {
-    };
     //0 - white
-    //1 - gray
+    //1 -gray
     //2 - black
     private int status;
-    private Object value;
+    private Object name;
+    private ArrayList<Edge> edges = new ArrayList<>();
 
     public GraphNode(Object val) {
         this.status = 0;
-        this.value = val;
+        this.name = val;
     }
 
-    public void addEdges(GraphNode ... arr) {
-        edges.addAll(Arrays.asList(arr));
-    }
-
-    public ArrayList<GraphNode> getEdges() {
-        return edges;
+    public void addEdge(GraphNode node, int val) {
+        edges.add(new Edge(node, val));
     }
 
     public int getStatus() {
@@ -33,11 +27,34 @@ public class GraphNode {
         this.status = code;
     }
 
-    public Object getValue() {
-        return value;
+    public Object getName() {
+        return name;
     }
 
-    public void setValue(Object value) {
-        this.value = value;
+    public void setName(Object value) {
+        this.name = value;
+    }
+
+    public ArrayList<Edge> getEdges() {
+        return edges;
+    }
+
+    //    private ArrayList<GraphNodeValue> edges = new ArrayList<>();
+
+    public class Edge {
+        private GraphNode  node;
+        private int val;
+        Edge(GraphNode node, int val) {
+            this.node = node;
+            this.val = val;
+        }
+
+        public GraphNode getNode() {return node;}
+
+        public int getVal() {return val; }
     }
 }
+
+
+
+

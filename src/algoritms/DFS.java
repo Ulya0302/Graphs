@@ -6,29 +6,28 @@ public class DFS {
 
     private static Object el;
 
-    public static GraphNode recursiveFinder(GraphNode graph, Object el) {
+    public static boolean wayExists(GraphNode startNode, Object el) {
         DFS.el = el;
-        GraphNode temp;
-        temp = recursiveHelper(graph);
-        if (temp != null)
-                return temp;
-        return null;
+        return recursiveHelper(startNode);
     }
 
-    private static GraphNode recursiveHelper(GraphNode node) {
-//        System.out.println(node.getValue()+ " р " + node.getStatus());
-        GraphNode temp;
+    private static boolean recursiveHelper(GraphNode node) {
+        System.out.println(node.getName()+ " р " + node.getStatus());
+        GraphNode curNode;
+        boolean flag;
         node.setStatus(2);
-        for (GraphNode curNode: node.getEdges()) {
-//            System.out.println(node.getValue()+ " " + curNode.getValue()+ " ц " + curNode.getStatus());
-            if (curNode.getValue() == el)
-                return curNode;
+        for (GraphNode.Edge curEdge: node.getEdges()) {
+            curNode = curEdge.getNode();
+            System.out.println(node.getName()+ " " + curNode.getName()+ " ц " + curNode.getStatus());
+            if (curNode.getName() == el) {
+                return true;
+            }
             if (curNode.getStatus() == 0) {
-                temp = recursiveHelper(curNode);
-                if (temp != null)
-                    return temp;
+                flag = recursiveHelper(curNode);
+                if (flag)
+                    return flag;
             }
         }
-        return null;
+        return false;
     }
 }
