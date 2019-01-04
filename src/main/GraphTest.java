@@ -10,6 +10,14 @@ public class GraphTest {
         undirectedGraph.addEdges("3", "4");
         undirectedGraph.addEdges("4", "5");
         undirectedGraph.addEdges("6", "7", "8");
-        undirectedGraph.findWay("1", "9");
+        undirectedGraph.wayExists("1", "90", true);
+        undirectedGraph.wayExists("1", "90", false);
+        boolean flag = undirectedGraph.wayExists("1", "90");
+        if (flag)
+            System.out.println("Way exists");
+        else
+            System.out.println("No way");
+//        undirectedGraph.addEdge("1", "2", 100);
+
     }
 }

@@ -3,18 +3,31 @@ package structurs;
 import java.util.ArrayList;
 
 public class GraphNode {
-    //0 - white
-    //1 -gray
-    //2 - black
+    /**The current status of node for searching:
+     * 0 - white
+      *2 - black*/
     private int status;
+
+    /**name of node, for example number, name of airport or smth else*/
     private Object name;
+
+    /**the list of edges this node*/
     private ArrayList<Edge> edges = new ArrayList<>();
 
+
+    /**
+     * @param val is name of graph node
+     */
     public GraphNode(Object val) {
         this.status = 0;
         this.name = val;
     }
 
+
+    /**
+     * @param node node to add edge to
+     * @param val distance from current node and param node
+     */
     public void addEdge(GraphNode node, int val) {
         edges.add(new Edge(node, val));
     }
@@ -39,8 +52,9 @@ public class GraphNode {
         return edges;
     }
 
-    //    private ArrayList<GraphNodeValue> edges = new ArrayList<>();
-
+    /**
+     * Contains pair node and val
+     */
     public class Edge {
         private GraphNode  node;
         private int val;
